@@ -24,11 +24,11 @@ class HelloHandler implements RequestHandlerInterface
 
     public function handle(ServerRequestInterface $request) : ResponseInterface
     {
-        // Do some work...
-        // Render and return a response:
+        $target = $request->getQueryParams()['target'] ?? 'World';
+        $target = htmlspecialchars($target, ENT_HTML5, 'UTF-8');
         return new HtmlResponse($this->renderer->render(
             'app::hello',
-            [] // parameters to pass to template
+            ['target' => $target]
         ));
     }
 }
