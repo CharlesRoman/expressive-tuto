@@ -12,6 +12,7 @@ declare(strict_types=1);
 return [
     'dependencies' => [
         'factories' => [
+            App\Handler\HelloHandler::class => App\Handler\HelloHandlerFactory::class,
             App\XClacksOverhaulMiddleware::class => App\XClacksOverhaulMiddlewareFactory::class,
         ],
     ],
